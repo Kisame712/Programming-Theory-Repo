@@ -32,7 +32,6 @@ public class LoadData : MonoBehaviour
     }
     void SetLoadedName()
     {
-        Debug.Log("Setting prev farmer");
        lastName.text = "Last Owner : " + lastfarmer;
     }
     // Update is called once per frame
