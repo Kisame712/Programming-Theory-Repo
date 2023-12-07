@@ -10,6 +10,19 @@ public class CowMovement : AnimalMovement
         movementSpeed = 3f;
         jumpForce = 2f;
     }
+    private void Update()
+    {
+        //Movement
+        if (Input.GetKey(KeyCode.Space))
+        {
+            Jump();
+        }
+        else if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow))
+        {
+            MoveAnimal();
+        }
+    }
+    
     // Start is called before the first frame update
 
 }

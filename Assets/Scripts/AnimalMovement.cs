@@ -4,45 +4,32 @@ using UnityEngine;
 
 public class AnimalMovement : MonoBehaviour
 {
-    public Rigidbody animalRb;
     protected float jumpForce = 2f;
     protected float movementSpeed = 5f;
     // Start is called before the first frame update
 
     // Update is called once per frame
-    void Update()
-    {
-        //Movement
-        if (Input.GetKey(KeyCode.Space))
-        {
-            Jump();
-        }
-        if(Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            MoveAnimal();
-        }
-    }
     public void Jump()
     {
-        animalRb.AddForce(Vector3.up * Time.deltaTime * jumpForce);
+        transform.Translate(jumpForce * Time.deltaTime * Vector3.up);
     }
     public void MoveAnimal()
     {
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKey(KeyCode.UpArrow))
         {
-            animalRb.AddForce(Vector3.forward * Time.deltaTime * movementSpeed);
+            transform.Translate(movementSpeed * Time.deltaTime * Vector3.forward);
         }
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+        if (Input.GetKey(KeyCode.DownArrow))
         {
-            animalRb.AddForce(Vector3.back * Time.deltaTime * movementSpeed);
+            transform.Translate(movementSpeed * Time.deltaTime * Vector3.back);
         }
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.LeftArrow))
         {
-            animalRb.AddForce(Vector3.left * Time.deltaTime * movementSpeed);
+            transform.Translate(movementSpeed * Time.deltaTime * Vector3.left);
         }
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.RightArrow))
         {
-            animalRb.AddForce(Vector3.right * Time.deltaTime * movementSpeed);
+            transform.Translate(movementSpeed * Time.deltaTime * Vector3.right);
         }
     }
 }
