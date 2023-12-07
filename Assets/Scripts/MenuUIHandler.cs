@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
 public class MenuUIHandler : MonoBehaviour
 {
+    public Text playerNameInput;
     // Start is called before the first frame update
     public void StartGame()
     {
@@ -19,5 +21,9 @@ public class MenuUIHandler : MonoBehaviour
 #else
         Application.Quit();
 #endif
+    }
+    public void NameSetter()
+    {
+        NameHandler.Instance.playerName = playerNameInput.text;
     }
 }
